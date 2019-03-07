@@ -1,0 +1,18 @@
+#container {
+    width: 600px;
+    margin: 0 auto;
+    background-color: black;
+}
+div {
+    width: 75%;
+        background-color: darkorange;
+
+}
+div.first {
+        background-color: cornflowerblue;
+        height: 24px;
+        transition: height .1s ease-out;
+}
+div.first:hover{
+        height: 50px;
+}
