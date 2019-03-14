@@ -2,17 +2,25 @@
     width: 600px;
     margin: 0 auto;
     background-color: black;
-}
-div {
-    width: 75%;
-        background-color: darkorange;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
 }
-div.first {
-        background-color: cornflowerblue;
-        height: 24px;
-        transition: height .1s ease-out;
+#container >div{
+        background-color: crimson;
+        width: 100px;
+        /*flex-grow: 1; */
+        height: 100px;
+        transition: height .2s linear;
 }
-div.first:hover{
+#container >div:nth-child(2){
+        background-color: darkgray;
         height: 50px;
+
+}
+#container >div:hover {
+        background-color: yellowgreen;
+       /* flex-grow: 1.5; */
+       width: 150px;
 }
