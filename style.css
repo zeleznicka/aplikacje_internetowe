@@ -27,7 +27,7 @@ html,body {
 #container >div:nth-child(1){
 grid-row: 5;
 grid-column: 1/span 2;
-background-color: cornflowerblue;
+background-color: rgb(100, 135, 199);
 }
 #container >div:nth-child(2){
         grid-row: 4;
