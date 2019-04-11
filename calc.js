@@ -64,6 +64,7 @@ const handleClick = ev => {
     }
 
 }
+
 const init = () => {
     const container = document.createElement('div');
     container.id = 'container';
