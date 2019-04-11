@@ -16,6 +16,55 @@ const pola = [
     { txt: '0', row: 5, col: '1/3' },
     { txt: 'Display', row: 1, col: '1/5' }];
 
+let mem = 0;
+let op = 0;
+let clearFlag = false;
+
+const handleClick = ev => {
+    const disp = document.getElementById('display');
+    const key = ev.target.textContent;
+    switch (key) {
+        case 'C':
+            disp.textContent = '0';
+            op = 0;
+            clearFlag = false;
+            mem = 0;
+            break;
+
+        case '+':
+        case '-':
+            if (op === 0) {
+                mem = parseFloat(disp.textContent);
+            } else {
+                mem += op * parseFloat(disp.textContent);
+            }
+            op = key === '+' ? 1 : -1;
+            clearFlag = true;
+            break;
+        case '=':
+            if (op === 0) {
+                mem = parseFloat(disp.textContent);
+            } else {
+                mem += op * parseFloat(disp.textContent);
+            }
+            op = 0;
+            disp.textContent = mem;
+            break;
+
+        default:
+            if (key === '0' && disp.textContent === '0') return;
+            if (key === '.' && disp.textContent.includes('.')) return;
+            if ((disp.textContent === '0' && key !== '.') || clearFlag) {
+                disp.textContent = key;
+                clearFlag = false;
+            } else {
+                disp.textContent += key;
+            }
+            break;
+    }
+
+}
+
 const init = () => {
     const container = document.createElement('div');
     container.id = 'container';
@@ -27,10 +76,7 @@ const init = () => {
         if (el.txt === 'Display') {
             div.id = 'display';
         } else {
-            div.addEventListener('click', ev => {
-                const d = document.getElementById('display');
-                d.textContent = ev.target.textContent;
-            });
+            div.addEventListener('click', handleClick);
         }
         container.appendChild(div);
     });
